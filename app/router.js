@@ -5,12 +5,12 @@ define([
 
         var Router = Backbone.Router.extend({
             routes:{
-                "/":"defaultRoute",
                 "":"defaultRoute",
+                "/":"defaultRoute",
+                '*path':"defaultRoute",
                 '*notFound':"not_found"
             },
             defaultRoute:function () {
-                console.log("default route hit")
                 var paint_view = new PaintView();
                 app.renderView(paint_view);
             },
