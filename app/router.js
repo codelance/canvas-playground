@@ -7,7 +7,7 @@ define([
             routes:{
                 "/":"defaultRoute",
                 "":"defaultRoute",
-                '*notFound':"not_found"
+                '*notFound':"defaultRoute"
             },
             defaultRoute:function () {
                 var paint_view = new PaintView();
