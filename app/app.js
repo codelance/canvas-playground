@@ -3,7 +3,7 @@ define(['underscore','backbone', 'layoutmanager'],
 
         var app = {
             // The root path to run the application.
-            root:'/'
+            root:window.location.pathname
         };
 
         // Localize or create a new JavaScript Template object.
