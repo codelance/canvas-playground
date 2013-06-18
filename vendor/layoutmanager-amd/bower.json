@@ -1,0 +1,14 @@
+{
+  "name": "layoutmanager-amd",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/playlyfe/backbone.layoutmanager-amd.git"
+  },
+  "gitHead": "65e848988791cf613b54983fc2a0e171dc58f342",
+  "readme": "backbone.layoutmanager-amd\n==========================\n\nAn AMD version of [tbranyen's Backbone Layout Manager](https://github.com/tbranyen/backbone.layoutmanager).\n",
+  "readmeFilename": "README.md",
+  "_id": "layoutmanager-amd@0.8.7",
+  "description": "backbone.layoutmanager-amd ==========================",
+  "commit": "65e848988791cf613b54983fc2a0e171dc58f342"
+}

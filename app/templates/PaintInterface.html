@@ -1,0 +1,75 @@
+<div id="Pane">
+
+    <div id="Frame">
+        <canvas id="image" width="1024px" height="515px"></canvas>
+    </div>
+
+    <div id="Tools">
+        <h2>Tools</h2>
+        <ul id="toolbox">
+            <li data-tool="DRAW" class="tool draw"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="RECT" class="tool rect"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="ERASER" class="tool eraser"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="CIRCLE" class="tool circle"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="TEXT" class="tool text"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="LINE" class="tool line"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="MOVE" class="tool move"><a data-bypass="true" href="#">Tool</a></li>
+            <li data-tool="FILL" class="tool wand"><a data-bypass="true" href="#">Tool</a></li>
+        </ul>
+
+        <h2>Color</h2>
+
+        <div id="Color">
+            <span id="currentColor"></span>
+            <ul id="colors">
+                <li class="color red"><a href="#">Color</a></li>
+                <li class="color blue"><a href="#">Color</a></li>
+                <li class="color green"><a href="#">Color</a></li>
+                <li class="color orange"><a href="#">Color</a></li>
+                <li class="color purple"><a href="#">Color</a></li>
+                <li class="color yellow"><a href="#">Color</a></li>
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+
+        <h2>Brush Size</h2>
+        <span id="brushSize"><input id="brushInput" type="range" min="1" max="15" step="1" value="6"/></span>
+
+        <h2>Font</h2>
+        <span id="textSize" style="margin-bottom:10px;"><input id="textInput" type="range" min="8" max="50" step="2" value="16"/></span>
+        <select id="textType">
+            <option>Antiqua</option>
+            <option selected>Arial</option>
+            <option>Calibri</option>
+            <option>Comic Sans</option>
+            <option>Courier</option>
+            <option>Georgia</option>
+            <option>Helvetica</option>
+            <option>Impact</option>
+            <option>Modern</option>
+            <option>Monospace</option>
+            <option>Roman</option>
+            <option>Script</option>
+            <option>Tahoma</option>
+            <option>Times New Roman	</option>
+            <option>Verdana</option>
+        </select>
+
+        <div id="frameEdits">
+            <a data-bypass="true" href="#" id="flipVert">Flip Vert</a>
+            <a data-bypass="true" href="#" id="flipHorz">Flip Horz</a>
+            <a data-bypass="true" href="#" id="grid">Grid</a>
+        </div>
+
+    </div>
+
+    <div id="Actions">
+        <span id="Styles">
+            <a data-bypass="true" href="#" id="copyStyles">Copy Styles</a>
+            <a data-bypass="true" href="#" id="applyStyles">Apply Styles</a>
+        </span>
+        <button id="close" data-dismiss="modal">Export</button>
+        <button id="revert">Clear</button>
+        <div style="clear:both;"></div>
+    </div>
+</div>

@@ -1,0 +1,643 @@
+/* reset --------------- */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,form,label,table,caption,tbody,tfoot,thead,tr,th,td {margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+header, section, nav, footer, aside, article { display: block; }
+
+html { overflow-x:hidden; }
+body {
+    position:relative;
+    font-family:"Myriad Pro", Helvetica, arial, sans-serif;
+    font-size:18px;
+    background:#efefef url('../img/bg.png');
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+}
+
+#Pane {
+    background-color:#fff;
+}
+
+/* Frame ------------*/
+#Frame {
+    float:left;
+    padding:10px;
+    width:83%;
+    min-width: 800px;
+    border-bottom-left-radius: 3px 3px;
+    border-bottom-right-radius: 3px 3px;
+    border-top-left-radius: 3px 3px;
+    border-top-right-radius: 3px 3px;
+    margin: 25px 10px 20px;
+    text-align: center;
+    background: #f7f7f7;
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #e7e7e7));
+    background: -webkit-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: -o-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: -ms-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: linear-gradient(to bottom, #f7f7f7 0%, #e7e7e7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e7e7e7', GradientType=0 );
+}
+
+#Frame canvas {
+    margin: 0px auto;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+}
+
+
+/* Tools -------*/
+#Tools {
+    padding:20px;
+    width:115px;
+    float:right;
+}
+
+#Pane #Tools h2 {
+    color:#999;
+    font-weight:normal;
+    margin-bottom:5px;
+    clear:both;
+}
+
+/* Toolbox  ---------*/
+#Pane #Tools #toolbox {
+    background-color:#d1d1d1;
+    margin-bottom:10px;
+    padding:11px 11px 0;
+    overflow:hidden;
+}
+
+#Pane #Tools #toolbox .tool {
+    background:#fff url('../img/sprite-toolbox.png') no-repeat;
+    float:left;
+    margin-right:12px;
+    margin-bottom:12px;
+    text-indent:-999999px;
+    -webkit-border-radius:2px;
+}
+
+#Pane #Tools #toolbox .tool.move {
+    background-position:8px 7px;
+}
+#Pane #Tools #toolbox .tool.draw {
+    background-position:-47px 7px;
+}
+#Pane #Tools #toolbox .tool.rect {
+    background-position:8px -43px;
+}
+#Pane #Tools #toolbox .tool.circle {
+    background-position:8px -95px;
+}
+#Pane #Tools #toolbox .tool.eraser {
+    background-position:-47px  -42px;
+}
+#Pane #Tools #toolbox .tool.text {
+    background-position:-47px  -95px;
+}
+#Pane #Tools #toolbox .tool.line {
+    background-position:8px -150px;
+}
+#Pane #Tools #toolbox .tool.wand {
+    background-position:-47px  -150px;
+}
+
+#Pane #Tools #toolbox .tool a {
+    display:block;
+    width:40px;
+    height:40px;
+}
+
+#Pane #Tools #toolbox .tool:nth-child(even) {
+    margin-right:0;
+}
+
+/* Color ---------*/
+#Pane #Tools #Color {
+    margin-bottom:10px;
+}
+
+#Pane #Tools #Color #currentColor {
+    float:left;
+    width:35px;
+    height:35px;
+    border:4px solid #fff;
+    background-color:green;
+    -webkit-box-shadow:0 0 2px #333;
+}
+
+#Pane #Tools #Color #colors {
+    float:left;
+    overflow:hidden;
+    width:64px;
+    margin-left:8px;
+}
+
+#Pane #Tools #Color #colors .color {
+    float:left;
+    width:18px;
+    height:18px;
+    background-color:#555;
+    text-indent:-999999px;
+    margin-right:4px;
+    margin-bottom:5px;
+}
+
+#Pane #Tools #Color #colors .color:hover {
+    opacity:0.5;
+}
+
+#Pane #Tools #Color #colors .color.red {
+    background-color:red;
+}
+#Pane #Tools #Color #colors .color.blue {
+    background-color:blue;
+}
+#Pane #Tools #Color #colors .color.orange {
+    background-color:orange;
+}
+#Pane #Tools #Color #colors .color.green {
+    background-color:green;
+}
+#Pane #Tools #Color #colors .color.purple {
+    background-color:purple;
+}
+#Pane #Tools #Color #colors .color.yellow {
+    background-color:yellow;
+}
+
+#Pane #Tools #Color #colors .color:nth-child(3n+3) {
+    margin-right:0;
+}
+
+#Pane #Tools #Color #colors .color.active {
+    -moz-box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+    -webkit-box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+    box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+}
+
+#Pane #Tools #Color #colors .color:nth-child(4),
+#Pane #Tools #Color #colors .color:nth-child(5),
+#Pane #Tools #Color #colors .color:nth-child(6) {
+    margin-bottom:0;
+}
+
+/* Brush size  ---------*/
+#Pane #Tools #brushSize,
+#Pane #Tools #textSize{
+    display:block;
+    background-color:#d1d1d1;
+    padding:4px 20px 8px 17px;
+    margin-bottom:10px;
+    position:relative;
+}
+
+#Pane #Tools #brushSize input,
+#Pane #Tools #textSize input{
+    background-color:rgba(0,0,0,.3);
+    height:3px;
+    width:70px;
+    -webkit-appearance:none;
+}
+
+#Pane #Tools #brushSize input:before,
+#Pane #Tools #textSize input:before{
+    content:'';
+    position:absolute;
+    background-color:#555;
+    top:10px;
+    left:6px;
+    width:8px;
+    height:8px;
+    -webkit-border-radius:20px;
+}
+
+#Pane #Tools #brushSize input:after,
+#Pane #Tools #textSize input:after{
+    content:'';
+    position:absolute;
+    top:6px;
+    right:5px;
+    background-color:#555;
+    width:16px;
+    height:16px;
+    -webkit-border-radius:20px;
+}
+
+/* Frame edits  ---------*/
+#Pane #Tools #frameEdits {
+    margin-top:15px;
+}
+
+#Pane #Tools #frameEdits a {
+    float:left;
+    background:#ccc url('../img/sprite-frameedit.png') no-repeat;
+    width:35px;
+    height:35px;
+    margin-right:5px;
+    text-indent:-999999px;
+}
+
+#Pane #Tools #frameEdits #flipHorz {
+    background-position:4px 3px;
+}
+#Pane #Tools #frameEdits #flipVert {
+    background-position:-40px 3px;
+}
+#Pane #Tools #frameEdits #grid {
+    background-position:-82px 3px;
+}
+
+
+#Pane #Tools #frameEdits a:last-child {
+    margin-right:0;
+}
+
+/* Actions ---------- */
+#Pane #Actions {
+    clear:both;
+    background-color:#e1e1e1;
+    padding:15px;
+}
+
+#Pane #Actions button {
+    float:right;
+    font-size:18px;
+    font-weight:bold;
+    border:0;
+    padding:5px 15px;
+    -webkit-border-radius:4px;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+#Pane #Actions button#revert {
+    background-color:#9e9e9e;
+    color:#fff;
+    font-weight:normal;
+}
+
+#Pane #Actions button#close {
+    background-color:#222;
+    color:#fff;
+    font-weight:normal;
+}
+
+#Pane #Actions input#duration {
+    -webkit-appearance:none;
+    border:1px solid #ccc;
+    padding:3px 5px 2px;
+    font-size:20px;
+    width:55px;
+    color:#095d95;
+    box-shadow:2px 2px 5px rba(0,0,0,.3);
+    float:left;
+}
+
+
+/* Styles -------------*/
+#Pane #Actions #Styles {
+    float:left;
+    margin-left:15px;
+}
+#Pane #Actions #Styles a {
+    float:left;
+    width:40px;
+    height:32px;
+    background:#777 url('../img/sprite-styles.png') no-repeat;
+    text-indent:-9999999px;
+    margin-right:3px;
+}
+
+#Pane #Actions ul {
+    float:left;
+    margin-right:3px;
+}
+
+#Pane #Actions #Styles #copyStyles {
+    background-position:8px 4px;
+}
+
+#Pane #Actions #Styles #applyStyles {
+    background-color:#ccc;
+    background-position:-35px 4px;
+}
+
+/* Begins Ben's Additions -------------*/
+
+#Pane #Tools #frameEdits #flipHorz {
+    background-position: -36px 0px;
+}
+#Pane #Tools #frameEdits #flipVert {
+    background-position: -1px 0
+}
+#Pane #Tools #frameEdits #grid {
+    background-position: -71px -1px
+}
+#Pane #Tools #frameEdits #flipHorz:hover {
+    background-position: -36px -35px;
+}
+#Pane #Tools #frameEdits #flipVert:hover {
+    background-position: -1px -35px
+}
+#Pane #Tools #frameEdits #grid:hover {
+    background-position: -71px -36px
+}
+#Pane #Tools #frameEdits #flipHorz:active {
+    background-position: -36px -70px;
+}
+#Pane #Tools #frameEdits #flipVert:active {
+    background-position: -1px -70px
+}
+#Pane #Tools #frameEdits #grid:active {
+    background-position: -71px -71px
+}
+#Pane #Tools #frameEdits a {
+    background-color: transparent;
+    border: 1px solid #bbb;
+    margin-right:5px;
+    -moz-box-shadow:0 1px 0 white inset;
+    -webkit-box-shadow:0 1px 0 white inset;
+    box-shadow:0 1px 0 white inset;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    height: 33px;
+    width: 33px;
+}
+#Pane #Tools #frameEdits a:hover {
+    border-color: #ccc
+}
+
+#Pane #Tools #frameEdits a:active,
+#Pane #Actions button:active,
+#Pane #Actions #Styles a:active,
+#Pane #Tools #toolbox .tool:active {
+    -moz-box-shadow:0 3px 7px rgba(0,0,0,0.3) inset;
+    -webkit-box-shadow:0 3px 7px rgba(0,0,0,0.3) inset;
+    box-shadow:0 3px 7px rgba(0,0,0,0.3) inset;
+}
+
+#Pane #Tools #toolbox .tool.active {
+    -moz-box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+    -webkit-box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+    box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+}
+
+#Pane #Tools #toolbox .tool.active {
+    -moz-box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+    -webkit-box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+    box-shadow:0 3px 7px rgba(0,0,0,0.7) inset;
+}
+
+#Pane #Actions button {
+    font-size: 15px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border: 1px solid #666;
+    text-shadow: 0 -1px #666;
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+    -webkit-box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+    box-shadow:0 1px 0 rgba(255,255,255,0.3) inset
+}
+#Pane #Actions button#revert {
+    background: #c2c2c2;
+    background: -moz-linear-gradient(top, #c2c2c2 0%, #959595 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c2c2c2), color-stop(100%, #959595));
+    background: -webkit-linear-gradient(top, #c2c2c2 0%, #959595 100%);
+    background: -o-linear-gradient(top, #c2c2c2 0%, #959595 100%);
+    background: -ms-linear-gradient(top, #c2c2c2 0%, #959595 100%);
+    background: linear-gradient(to bottom, #c2c2c2 0%, #959595 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2c2c2', endColorstr='#959595', GradientType=0 );
+}
+#Pane #Actions button#revert:hover {
+    background: #e2e2e2;
+    background: -moz-linear-gradient(top, #e2e2e2 0%, #adadad 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2e2e2), color-stop(100%, #adadad));
+    background: -webkit-linear-gradient(top, #e2e2e2 0%, #adadad 100%);
+    background: -o-linear-gradient(top, #e2e2e2 0%, #adadad 100%);
+    background: -ms-linear-gradient(top, #e2e2e2 0%, #adadad 100%);
+    background: linear-gradient(to bottom, #e2e2e2 0%, #adadad 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#adadad', GradientType=0 );
+    border-color: #999;
+}
+#Pane #Actions button#revert:active {
+    background: #959595;
+    background: -moz-linear-gradient(top, #959595 0%, #c2c2c2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #959595), color-stop(100%, #c2c2c2));
+    background: -webkit-linear-gradient(top, #959595 0%, #c2c2c2 100%);
+    background: -o-linear-gradient(top, #959595 0%, #c2c2c2 100%);
+    background: -ms-linear-gradient(top, #959595 0%, #c2c2c2 100%);
+    background: linear-gradient(to bottom, #959595 0%, #c2c2c2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#c2c2c2', GradientType=0 );
+    border-color: #999;
+}
+#Pane #Actions button#close {
+    background: #737373;
+    background: -moz-linear-gradient(top, #737373 0%, #474747 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #737373), color-stop(100%, #474747));
+    background: -webkit-linear-gradient(top, #737373 0%, #474747 100%);
+    background: -o-linear-gradient(top, #737373 0%, #474747 100%);
+    background: -ms-linear-gradient(top, #737373 0%, #474747 100%);
+    background: linear-gradient(to bottom, #737373 0%, #474747 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#737373', endColorstr='#474747', GradientType=0 );
+    border-color: #333;
+    text-shadow:0 -1px #000;
+}
+#Pane #Actions button#close:hover {
+    background: #9d9d9d;
+    background: -moz-linear-gradient(top, #9d9d9d 0%, #7e7e7e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9d9d9d), color-stop(100%, #7e7e7e));
+    background: -webkit-linear-gradient(top, #9d9d9d 0%, #7e7e7e 100%);
+    background: -o-linear-gradient(top, #9d9d9d 0%, #7e7e7e 100%);
+    background: -ms-linear-gradient(top, #9d9d9d 0%, #7e7e7e 100%);
+    background: linear-gradient(to bottom, #9d9d9d 0%, #7e7e7e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9d9d9d', endColorstr='#7e7e7e', GradientType=0 );
+    border-color: #666;
+}
+#Pane #Actions button#close:active {
+    background: #474747;
+    background: -moz-linear-gradient(top, #474747 0%, #737373 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #474747), color-stop(100%, #737373));
+    background: -webkit-linear-gradient(top, #474747 0%, #737373 100%);
+    background: -o-linear-gradient(top, #474747 0%, #737373 100%);
+    background: -ms-linear-gradient(top, #474747 0%, #737373 100%);
+    background: linear-gradient(to bottom, #474747 0%, #737373 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#474747', endColorstr='#737373', GradientType=0 );
+    border-color: #666;
+}
+#Pane #Actions {
+    background: #f7f7f7;
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #e7e7e7));
+    background: -webkit-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: -o-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: -ms-linear-gradient(top, #f7f7f7 0%, #e7e7e7 100%);
+    background: linear-gradient(to bottom, #f7f7f7 0%, #e7e7e7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e7e7e7', GradientType=0 );
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #aaa;
+}
+#Pane #Tools #Color #currentColor {
+    -moz-box-shadow:0 0 4px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.3);
+    box-shadow:0 0 4px rgba(0,0,0,0.3);
+}
+
+#Pane #Actions #Styles a {
+    width: 32px;
+    background-color: transparent;
+    border: 1px solid #999;
+    margin-right:5px;
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+    -webkit-box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+    box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+#Pane #Actions #Styles #copyStyles {
+    background-position: 0 0;
+    border-color: #666
+}
+#Pane #Actions #Styles #copyStyles:hover {
+    background-position: 0 -32px;
+    border-color: #999
+}
+#Pane #Actions #Styles #copyStyles:active {
+    background-position: 0 -64px
+}
+#Pane #Actions #Styles #applyStyles {
+    background-position: -32px 0
+}
+#Pane #Actions #Styles #applyStyles:hover {
+    background-position: -32px -32px;
+    border-color: #aaa
+}
+#Pane #Actions #Styles #applyStyles:active {
+    background-position: -32px -64px
+}
+#Pane #Tools #toolbox .tool {
+    background: #f4f4f4;
+    background: -moz-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f4f4f4), color-stop(100%, #dbdbdb));
+    background: -webkit-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+    background: -o-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+    background: -ms-linear-gradient(top, #f4f4f4 0%, #dbdbdb 100%);
+    background: linear-gradient(to bottom, #f4f4f4 0%, #dbdbdb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#dbdbdb', GradientType=0 );
+    border: 1px solid #aaa;
+    -moz-box-shadow:0 1px 0 white inset;
+    -webkit-box-shadow:0 1px 0 white inset;
+    box-shadow:0 1px 0 white inset;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin-bottom:8px;
+    margin-right:8px;
+}
+#Pane #Tools #toolbox .tool:hover {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #eeeeee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0 );
+}
+#Pane #Tools #toolbox .tool:active {
+    background: #dbdbdb;
+    background: -moz-linear-gradient(top, #dbdbdb 0%, #f4f4f4 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dbdbdb), color-stop(100%, #f4f4f4));
+    background: -webkit-linear-gradient(top, #dbdbdb 0%, #f4f4f4 100%);
+    background: -o-linear-gradient(top, #dbdbdb 0%, #f4f4f4 100%);
+    background: -ms-linear-gradient(top, #dbdbdb 0%, #f4f4f4 100%);
+    background: linear-gradient(to bottom, #dbdbdb 0%, #f4f4f4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#f4f4f4', GradientType=0 );
+}
+#Pane #Tools #toolbox .tool a {
+    background:url("../img/sprite-toolbox.png") no-repeat;
+}
+#Pane #Tools #toolbox .tool.move, #Pane #Tools #toolbox .tool.draw, #Pane #Tools #toolbox .tool.rect, #Pane #Tools #toolbox .tool.eraser, #Pane #Tools #toolbox .tool.circle, #Pane #Tools #toolbox .tool.text, #Pane #Tools #toolbox .tool.line, #Pane #Tools #toolbox .tool.wand {
+    background-position: 0 0
+}
+#Pane #Tools #toolbox .tool.move a {
+    background-position: 8px 7px
+}
+#Pane #Tools #toolbox .tool.draw a {
+    background-position: -47px 7px
+}
+#Pane #Tools #toolbox .tool.rect a {
+    background-position: 8px -43px
+}
+#Pane #Tools #toolbox .tool.eraser a {
+    background-position: -47px -42px
+}
+#Pane #Tools #toolbox .tool.circle a {
+    background-position: 8px -95px
+}
+#Pane #Tools #toolbox .tool.text a {
+    background-position: -47px -95px
+}
+#Pane #Tools #toolbox .tool.line a {
+    background-position: 8px -150px
+}
+#Pane #Tools #toolbox .tool.wand a {
+    background-position: -47px -150px
+}
+#Pane #Tools #toolbox, #Pane #Tools #brushSize, #Pane #Tools #textSize, #Frame img {
+    border: 1px solid white;
+    -moz-box-shadow:0 0 4px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.3);
+    box-shadow:0 0 4px rgba(0,0,0,0.3);
+}
+#Pane #Tools #toolbox, #Pane #Tools #brushSize, #Pane #Tools #textSize, #Frame canvas {
+    border: 1px solid white;
+    -moz-box-shadow:0 0 4px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.3);
+    box-shadow:0 0 4px rgba(0,0,0,0.3);
+}
+#Pane #Tools #toolbox {
+    padding: 11px 10px 0
+}
+
+/* End Ben's Additions -------------*/
+
+.ui-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-image: url(../img/ui-icons_222222_256x240.png);
+}
+.ui-icon-gripsmall-diagonal-se {
+    background-position: -64px -224px;
+}
+.ui-resizable-se {
+    bottom: 45px;
+    right: 7px;
+}
+.ui-resizable-handle {
+    position: absolute;
+    font-size: 0.1px;
+    display: block;
+}
+
+#textType {
+    border: 1px solid #000;
+    font-size: 14px;
+    color: #fff;
+    background: #C2C2C2;
+    width:120px;
+}
